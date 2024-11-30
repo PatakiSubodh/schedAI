@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SchedAI</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+    <style>
+      /* Custom styles */
+      body {
+        background-color: #f4f6f9; /* Light gray background */
+        font-family: Arial, sans-serif;
+      }
+
+      /* Center the form */
+      form#form1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .navbar {
+        background-color: #343a40; /* Dark background for navbar */
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+      }
+
+      .navbar-nav .nav-link:hover {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .welcome h1 {
+        color: #333;
+        font-weight: 700;
+        margin-top: 50px; /* Added top margin */
+      }
+
+      .lead {
+        color: #555;
+        font-size: 1.25rem;
+      }
+
+      .fa {
+        font-size: 3rem;
+        color: #007bff;
+      }
+
+      .container-fluid {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Align cards in one line and add spacing between them */
+      .row {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Add space between cards */
+        margin-top: 30px; /* Add margin between heading and cards */
+      }
+
+      .col-md-4 {
+        padding: 20px;
+        background-color: #e9ecef;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        flex: 1;
+      }
+
+      .col-md-4:hover {
+        transform: scale(1.05);
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
+</head>
+<body>
+    <form id="form1">
+        <header>
+            <!--Navigation Bar-->
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#"><b>SchedAI</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'help' %}">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+		                <a class="nav-link" href="{% url 'login' %}">Login</a>
+		            </li>
+		            <li class="nav-item">
+			            <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+		            </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!--Image Carousel-->
+	</div>
+
+    <!--Build with Ease and Logos section-->
+    <div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Build with ease.</h1>
+        </div>
+        <hr />
+        <div class="col-12">
+            <p class="lead">
+                A Timetable Generation Tool that allows the swift, efficient and smooth generation of college and university timetables with complete collision avoidance.
+            </p>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid">
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fa fa-bolt" aria-hidden="true"></i>
+            <h3>Fast</h3>
+            <p>Fast and Smooth Scheduling.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <h3>Secure</h3>
+            <p>Secure Scheduling Process.</p>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <i class="fa fa-check-square" aria-hidden="true"></i>
+            <h3>Reliable</h3>
+            <p>Reliable and Trustworthy Process.</p>
+        </div>
+    </div>
+    </div>
+
+   </form>
+</body>
+</html>

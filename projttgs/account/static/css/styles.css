@@ -1,0 +1,135 @@
+/* General Body Styles */
+body {
+    background-color: #f4f4f4; /* Light grey background */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 0;
+  }
+  
+  /* Card Container Styles */
+  .login-container, .register-container {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px; /* Limit the width of the form */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow around the card */
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #ddd; /* Light border around the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  
+  /* Heading Styles */
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  /* Form Input Styles */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    padding: 14px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Smooth transition effect */
+  }
+  
+  /* Focus Effect on Inputs */
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow effect on focus */
+  }
+  
+  /* Submit Button Styles */
+  input[type="submit"] {
+    padding: 14px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Submit Button Hover Effect */
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Button lift effect */
+  }
+  
+  /* Submit Button Active Effect */
+  input[type="submit"]:active {
+    background-color: #004085;
+    transform: translateY(0); /* Button presses down on click */
+  }
+  
+  /* Paragraph Text Below the Form */
+  .login-container p, .register-container p {
+    color: #555;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* Link Styling */
+  .login-container p a, .register-container p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  /* Link Hover Effect */
+  .login-container p a:hover, .register-container p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Spacing and Margin Adjustments */
+  .login-container form, .register-container form {
+    width: 100%;
+  }
+  
+  form p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  input[type="submit"] {
+    margin-top: 20px;
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 600px) {
+    .login-container, .register-container {
+      width: 90%;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+  }
+  
