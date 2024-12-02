@@ -1,5 +1,5 @@
 """
-WSGI config for projttgs project.
+WSGI config for SchedAI project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
