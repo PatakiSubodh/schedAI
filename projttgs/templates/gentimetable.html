@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SchedAI</title>
+    <link rel="icon" type="image/png" href="/projttgs/assets/img/favicon.png">
+    
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -59,9 +61,12 @@
 	</style>
 </head>
 <body>
-    <div id="timetable" style="margin-top: 3rem;">
-        <h1>SchedAI</h1>
-        <hr style="border: 1px solid black;">
+    <div id="timetable">
+        <div style="background-color: #5a5a5a; padding: 15px 0;">
+            <a href="{% url 'admindash' %}"><h1 style="font-size: 3rem; color: #fff;">SchedAI</h1></a>
+        </div>
+        <!-- <hr style="border: 1px solid black;"> -->
+        <br>
         {% block content %}
         {% if sections %}
             {% for section in sections %}
@@ -72,14 +77,14 @@
                         <thead>
                             <tr>
                                 <th>Day</th>
-                                <th>1 <br> (8:50 - 09:50)</th>
-                                <th>2 <br>(09:50 - 10:45)</th>
-                                <th>3 <br>(11:00 - 11:55)</th>
-                                <th>4 <br>(11:55 - 12:50)</th>
+                                <th>1<br>(08:50 - 09:50)</th>
+                                <th>2<br>(09:50 - 10:45)</th>
+                                <th>3<br>(11:00 - 11:55)</th>
+                                <th>4<br>(11:55 - 12:50)</th>
                                 <th style="background-color: white; border: none; border-top: 1px solid black;"></th>
-                                <th>5 <br>(02:00 - 03:00)</th>
-                                <th>6 <br>(03:00 - 04:00)</th>
-                                <th>7 <br>(04:00 - 05:00)</th>
+                                <th>5<br>(02:00 - 03:00)</th>
+                                <th>6<br>(03:00 - 04:00)</th>
+                                <th>7<br>(04:00 - 05:00)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,14 +94,14 @@
                                 <td>Monday</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm1' and  class.meeting_time.time == '8:50 - 09:50' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm1' and  class.meeting_time.time == '08:50 - 09:50' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm2' and  class.meeting_time.time == '9:50 - 10:45' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm2' and  class.meeting_time.time == '09:50 - 10:45' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -118,21 +123,21 @@
                                 <td rowspan="6" style="writing-mode: vertical-rl; font-weight: bold; font-size: 1.25rem; border: none; border-bottom: 1px solid;">lunch break</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm5' and  class.meeting_time.time == '02:00 - 03:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm5' and  class.meeting_time.time == '14:00 - 15:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm6' and  class.meeting_time.time == '03:00 - 04:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm6' and  class.meeting_time.time == '15:00 - 16:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm7' and  class.meeting_time.time == '04:00 - 05:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'm7' and  class.meeting_time.time == '16:00 - 17:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -144,14 +149,14 @@
                                 <td>Tuesday</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 't1' and  class.meeting_time.time == '8:50 - 09:50' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 't1' and  class.meeting_time.time == '08:50 - 09:50' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 't2' and  class.meeting_time.time == '9:50 - 10:45' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 't2' and  class.meeting_time.time == '09:50 - 10:45' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -172,21 +177,21 @@
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 't5' and  class.meeting_time.time == '02:00 - 03:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 't5' and  class.meeting_time.time == '14:00 - 15:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 't6' and  class.meeting_time.time == '03:00 - 04:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 't6' and  class.meeting_time.time == '15:00 - 16:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 't7' and  class.meeting_time.time == '04:00 - 05:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 't7' and  class.meeting_time.time == '16:00 - 17:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -198,14 +203,14 @@
                                 <td>Wednesday</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w1' and  class.meeting_time.time == '8:50 - 09:50' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w1' and  class.meeting_time.time == '08:50 - 09:50' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w2' and  class.meeting_time.time == '9:50 - 10:45' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w2' and  class.meeting_time.time == '09:50 - 10:45' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -226,21 +231,21 @@
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w5' and  class.meeting_time.time == '02:00 - 03:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w5' and  class.meeting_time.time == '14:00 - 15:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w6' and  class.meeting_time.time == '03:00 - 04:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w6' and  class.meeting_time.time == '15:00 - 16:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w7' and  class.meeting_time.time == '04:00 - 05:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'w7' and  class.meeting_time.time == '16:00 - 17:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -252,14 +257,14 @@
                                 <td>Thursday</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th1' and  class.meeting_time.time == '8:50 - 09:50' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th1' and  class.meeting_time.time == '08:50 - 09:50' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th2' and  class.meeting_time.time == '9:50 - 10:45' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th2' and  class.meeting_time.time == '09:50 - 10:45' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -280,21 +285,21 @@
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th5' and  class.meeting_time.time == '02:00 - 03:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th5' and  class.meeting_time.time == '14:00 - 15:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th6' and  class.meeting_time.time == '03:00 - 04:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th6' and  class.meeting_time.time == '15:00 - 16:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th7' and  class.meeting_time.time == '04:00 - 05:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'th7' and  class.meeting_time.time == '16:00 - 17:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -306,14 +311,14 @@
                                 <td>Friday</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f1' and  class.meeting_time.time == '8:50 - 09:50' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f1' and  class.meeting_time.time == '08:50 - 09:50' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f2' and  class.meeting_time.time == '9:50 - 10:45' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f2' and  class.meeting_time.time == '09:50 - 10:45' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -334,21 +339,21 @@
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f5' and  class.meeting_time.time == '02:00 - 03:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f5' and  class.meeting_time.time == '14:00 - 15:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f6' and  class.meeting_time.time == '03:00 - 04:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f6' and  class.meeting_time.time == '15:00 - 16:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f7' and  class.meeting_time.time == '04:00 - 05:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 'f7' and  class.meeting_time.time == '16:00 - 17:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -360,14 +365,14 @@
                                 <td>Saturday</td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 's1' and  class.meeting_time.time == '8:50 - 09:50' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 's1' and  class.meeting_time.time == '08:50 - 09:50' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 's2' and  class.meeting_time.time == '9:50 - 10:45' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 's2' and  class.meeting_time.time == '09:50 - 10:45' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
@@ -388,21 +393,21 @@
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 's5' and  class.meeting_time.time == '02:00 - 03:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 's5' and  class.meeting_time.time == '14:00 - 15:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 's6' and  class.meeting_time.time == '03:00 - 04:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 's6' and  class.meeting_time.time == '15:00 - 16:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td>
                                     {% for class in schedule %}
-                                        {% if class.section == section.section_id and class.meeting_time.pid == 's7' and  class.meeting_time.time == '04:00 - 05:00' %}
+                                        {% if class.section == section.section_id and class.meeting_time.pid == 's7' and  class.meeting_time.time == '16:00 - 17:00' %}
                                             {{ class.course.course_name }}<br>({{ class.instructor.name }})
                                         {% endif %}
                                     {% endfor %}
