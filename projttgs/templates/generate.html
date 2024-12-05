@@ -1,105 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SchedAI</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link rel="stylesheet" type="text/css" href="static/css/aboutus.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
-
-    <style>
-        body {
-    padding-top: 3.5rem;
-}
-
-nav {
-    font-family: sans-serif;
-}
-
-.navbar-brand {
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchedAI | Generate Timetable</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <form id="form1">
-        <header>
-            <!--Navigation Bar-->
-			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                
-                <a class="navbar-brand" href="{% url 'admindash' %}"><p style="color: #fff; font-weight: 900; letter-spacing: 1px; margin-top: 15px; margin-left: 20px; font-size: 1.5rem;">SchedAI</p></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admindash' %}">Get Started</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'addInstructors' %}">Add Teachers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'addRooms' %}">Add Rooms</a>
-                    </li>
-                    <li class="nav-item">
-		                <a class="nav-link" href="{% url 'addTimings' %}">Add Timings</a>
-		            </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'addCourses' %}">Add Courses</a>
-                    </li>
-                    <li class="nav-item">
-			            <a class="nav-link" href="{% url 'addDepts' %}">Add Departments</a>
-		            </li>
-                    <li class="nav-item">
-			            <a class="nav-link" href="{% url 'addSections' %}">Add Sections</a>
-		            </li>
-                    <li class="nav-item active">
-			            <a class="nav-link" href="{% url 'generate' %}">Generate Timetable</a>
-		            </li>
-                    <li class="nav-item active">
-			            <a class="nav-link">|</a>
-		            </li>
-                    <li class="nav-item dropdown">
-		                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, {{ user.first_name }}</a>
-			            <div class="dropdown-menu" aria-labelledby="dropdown03">
-			                <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
-                            <a class="dropdown-item" href="/">Logout</a>
-			            </div>
-		            </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="{% url 'admindash' %}">
+                <p style="color: #fff; font-weight: 900; letter-spacing: 1px; margin-top: 15px; margin-left: 20px; font-size: 1.5rem;">SchedAI</p>
+            </a>
+        </nav>
+    </header>
 
-         <main role="main">
-
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-4">SchedAI | Generate Timetable</h1>
-      <p>Please make sure you have entered the correct information for the Teachers, Rooms, Timings, Courses, Sections and Departments
-        into the system. If you have not entered all the information yet please refer below on how to go about feeding all the information into the system.
-          Once confirmed please click on the "Generate Timetable" button below and wait patiently as SchedAI generates your timetable for you.</p>
-      <p><a href="{% url 'timetable' %}" class="btn btn-primary btn-lg">Generate Timetable&raquo;</a>
+    <div style="margin: 0 3rem; margin-top: 8rem; background-color: #e9ecef; padding: 3rem; text-align: center;">
+        <h1 class="display-4">Generate Timetable</h1>
+        <p>* Please make sure you have entered the correct information for the Teachers, Rooms, Timings, Courses, Sections, and Departments into the system.</p>
+        <p><a href="{% url 'timetable' %}" id="generate-btn" class="btn btn-primary btn-lg" onclick="startTimetableGeneration()" style="padding: 10px 50px;">Generate &raquo;</a></p>
+        <h3>Time Remaining: <span id="timer" style="color: red;">5m 00s</span></h3>
     </div>
-  </div>
-  
 
-</main>
+    <script>
+        let countdownTime = 5 * 60;  // 5 minutes in seconds
+        let countdownInterval;
 
-<footer class="container">
-  <p>&copy; SchedAI. All Rights Reserved</p>
-</footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script>
+        // Function to update the countdown timer
+        function updateTimer() {
+            let minutes = Math.floor(countdownTime / 60);
+            let seconds = countdownTime % 60;
+            document.getElementById("timer").textContent = `${minutes}m ${seconds}s`;
 
-    </form>
+            // Decrease the countdown time every second
+            if (countdownTime > 0) {
+                countdownTime--;
+            } else {
+                clearInterval(countdownInterval);
+                document.getElementById("timer").textContent = "Time Expired!";
+            }
+        }
+
+        // Function to handle the button click
+        function startTimetableGeneration() {
+            // Start the countdown timer when the button is clicked
+            countdownInterval = setInterval(updateTimer, 1000);
+
+            // Optionally, you can disable the button after it's clicked to prevent multiple clicks
+            document.getElementById("generate-btn").disabled = true;
+        }
+
+        window.onload = function() {
+            // Initialize the timer display
+            updateTimer();
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

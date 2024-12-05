@@ -256,7 +256,7 @@ def timetable(request):
     geneticAlgorithm = GeneticAlgorithm()
 
     # Max generations to avoid infinite loop
-    MAX_GENERATIONS = 1000
+    MAX_GENERATIONS = 10
     while population.get_schedules()[0].get_fitness() != 1.0 and generation_num < MAX_GENERATIONS:
         generation_num += 1
         print('\n> Generation #' + str(generation_num))
